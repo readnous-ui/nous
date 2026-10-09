@@ -29,12 +29,12 @@ export function Header() {
   }, [])
 
   const categories = [
-    { name: "Mind & Consciousness", slug: "mind-consciousness", color: "#3B1B28" },
-    { name: "Physical Universe", slug: "physical-universe-complexity", color: "#2B3A42" },
-    { name: "Technology & Agency", slug: "technology-ai-agency", color: "#4A2835" },
-    { name: "Society & History", slug: "society-history", color: "#6B3A2A" },
-    { name: "Culture & Aesthetics", slug: "culture-aesthetics", color: "#5C2B3E" },
-    { name: "Philosophy of Life", slug: "philosophy-transcendence", color: "#3B1B28" },
+    { name: "Mind & Consciousness", slug: "mind-consciousness" },
+    { name: "Physical Universe", slug: "physical-universe-complexity" },
+    { name: "Technology & Agency", slug: "technology-ai-agency" },
+    { name: "Society & History", slug: "society-history" },
+    { name: "Culture & Aesthetics", slug: "culture-aesthetics" },
+    { name: "Philosophy of Life", slug: "philosophy-transcendence" },
   ]
 
   return (
@@ -44,8 +44,8 @@ export function Header() {
         <div className="max-w-7xl mx-auto flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-[#6E686B]">
           <span>An Independent Journal of Ideas & Human Depth</span>
           <div className="flex items-center space-x-6">
-            <Link href="/studio" className="hover:text-[#3B1B28] transition-colors">
-              Studio
+            <Link href="/about" className="hover:text-[#3B1B28] transition-colors">
+              About
             </Link>
             <span className="hidden sm:inline">Edited by Ahmad Farooq</span>
           </div>
@@ -55,7 +55,7 @@ export function Header() {
       {/* Main Masthead Bar */}
       <header className="sticky top-0 z-40 bg-[#F9F6F2]/95 backdrop-blur-md border-b border-[rgba(23,24,26,0.08)]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          {/* Left: Aeon-Style Menu Trigger */}
+          {/* Left: Menu Trigger */}
           <div className="flex items-center space-x-4">
             <button 
               onClick={() => setMenuOpen(true)}
@@ -124,7 +124,7 @@ export function Header() {
 
       {/* Full-Screen Aeon-Style Slide-Out Overlay Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#F9F6F2] flex flex-col justify-between p-8 sm:p-14 overflow-y-auto animate-fade-in">
+        <div className="fixed inset-0 z-50 bg-[#F9F6F2] flex flex-col justify-between p-8 sm:p-14 overflow-y-auto">
           <div>
             <div className="max-w-7xl mx-auto flex items-center justify-between pb-12 border-b border-[rgba(23,24,26,0.08)]">
               <span className="font-serif lowercase text-3xl text-[#3B1B28]">nous</span>
@@ -166,7 +166,6 @@ export function Header() {
                   <ul className="space-y-3 font-serif text-2xl text-[#17181A]">
                     <li><Link href="/" onClick={() => setMenuOpen(false)} className="hover:text-[#3B1B28]">Essays</Link></li>
                     <li><Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-[#3B1B28]">About the Journal</Link></li>
-                    <li><Link href="/studio" onClick={() => setMenuOpen(false)} className="hover:text-[#3B1B28]">Nous Studio</Link></li>
                     <li><a href="#dispatch" onClick={() => setMenuOpen(false)} className="hover:text-[#3B1B28]">The Dispatch</a></li>
                   </ul>
                 </div>
@@ -185,7 +184,7 @@ export function Header() {
           </div>
 
           <div className="max-w-7xl mx-auto w-full pt-8 border-t border-[rgba(23,24,26,0.08)] flex flex-col sm:flex-row items-center justify-between text-xs tracking-[0.14em] text-[#6E686B]">
-            <span>NOUS // AN INDEPENDENT SALON OF IDEAS</span>
+            <span>NOUS // AN INDEPENDENT JOURNAL OF IDEAS</span>
             <span>PUBLISHED WEEKLY</span>
           </div>
         </div>

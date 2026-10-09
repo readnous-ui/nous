@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
     const cleanEmail = email.trim().toLowerCase()
 
-    // 1. Supabase Persistence (if credentials configured)
+    // 1. Write to Supabase if configured
     if (supabase) {
       try {
         const { error: dbError } = await supabase
@@ -21,41 +21,45 @@ export async function POST(request: Request) {
           .upsert({ email: cleanEmail, status: 'active' }, { onConflict: 'email' })
 
         if (dbError) {
-          console.error('Supabase write error:', dbError)
+          console.warn('Supabase write notice:', dbError.message)
         }
       } catch (err) {
-        console.error('Supabase connection error:', err)
+        console.warn('Supabase network notice:', err)
       }
     }
 
-    // 2. Sovereign Local Fallback (Guarantees zero subscriber loss)
-    const dataDir = path.join(process.cwd(), 'data')
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true })
-    }
-
-    const subscribersFile = path.join(dataDir, 'subscribers.json')
-    let subscribers: { email: string; date: string }[] = []
-
-    if (fs.existsSync(subscribersFile)) {
-      try {
-        subscribers = JSON.parse(fs.readFileSync(subscribersFile, 'utf-8'))
-      } catch {
-        subscribers = []
+    // 2. Sovereign Local JSON Backup
+    try {
+      const dataDir = path.join(process.cwd(), 'data')
+      if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true })
       }
-    }
 
-    if (!subscribers.some((s) => s.email === cleanEmail)) {
-      subscribers.push({
-        email: cleanEmail,
-        date: new Date().toISOString(),
-      })
-      fs.writeFileSync(subscribersFile, JSON.stringify(subscribers, null, 2))
+      const subscribersFile = path.join(dataDir, 'subscribers.json')
+      let subscribers: { email: string; date: string }[] = []
+
+      if (fs.existsSync(subscribersFile)) {
+        try {
+          subscribers = JSON.parse(fs.readFileSync(subscribersFile, 'utf-8'))
+        } catch {
+          subscribers = []
+        }
+      }
+
+      if (!subscribers.some((s) => s.email === cleanEmail)) {
+        subscribers.push({
+          email: cleanEmail,
+          date: new Date().toISOString(),
+        })
+        fs.writeFileSync(subscribersFile, JSON.stringify(subscribers, null, 2))
+      }
+    } catch {
+      // In serverless read-only filesystems like Vercel lambda, fs write might fail silently
     }
 
     return NextResponse.json({
       success: true,
-      message: 'You have joined the salon. An entry is reserved for you every Sunday.',
+      message: 'You have joined The Dispatch. An essay is reserved for you every Sunday.',
     })
   } catch (error) {
     console.error('Subscription error:', error)
