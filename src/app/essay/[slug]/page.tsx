@@ -61,7 +61,7 @@ export default async function EssayPage({ params }: PageProps) {
         {/* Cinematic Wide Cover Image */}
         {essay.coverImage && (
           <div className="mb-20">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[1px] bg-[#F1ECE4]">
+            <div className="relative w-full h-[360px] sm:h-[500px] overflow-hidden rounded-[1px] bg-[#F1ECE4]">
               <Image
                 src={essay.coverImage}
                 alt={essay.title}
@@ -79,7 +79,7 @@ export default async function EssayPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Deep Prose Column (Pure Aeon typography ratio) */}
+        {/* Deep Prose Column */}
         <article className="max-w-2xl mx-auto space-y-16">
           {essay.sections.map((section, sIndex) => (
             <section key={sIndex} className="space-y-7">

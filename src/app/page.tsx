@@ -14,10 +14,10 @@ export default function Home() {
       <Header />
       
       <main className="max-w-7xl mx-auto px-6 py-12 sm:py-20 flex-1">
-        {/* Flagship Hero Feature (Aeon Style Full-Width Hero) */}
+        {/* Flagship Hero Feature */}
         <section className="mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left: Vast Hero Typography */}
+            {/* Left: Hero Typography */}
             <div className="lg:col-span-5 space-y-6 order-2 lg:order-1">
               <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.16em] text-[#7D6B73] font-medium">
                 <Link href={`/pillar/${featured.pillarSlug}`} className="text-[#3B1B28] font-semibold hover:underline">
@@ -51,15 +51,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Expansive Cinematic Hero Image */}
+            {/* Right: Explicit Height Constrained Container */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <Link href={`/essay/${featured.slug}`} className="group block overflow-hidden rounded-[1px] relative aspect-[16/10] bg-[#F1ECE4]">
+              <Link href={`/essay/${featured.slug}`} className="group block overflow-hidden rounded-[1px] relative w-full h-[380px] sm:h-[480px] bg-[#F1ECE4]">
                 <Image
                   src={featured.coverImage}
                   alt={featured.title}
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
                   className="object-cover group-hover:scale-103 transition-transform duration-700 ease-out"
                 />
               </Link>
@@ -87,7 +87,7 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Upcoming Issues Grid (Psyche/Aeon Secondary Monograph Grid) */}
+        {/* Upcoming Issues Grid */}
         <section className="mb-24">
           <div className="flex items-center justify-between pb-6 border-b border-[rgba(23,24,26,0.08)] mb-12">
             <span className="text-xs uppercase tracking-[0.16em] text-[#17181A] font-semibold">
@@ -101,7 +101,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {upcoming.map((essay) => (
               <div key={essay.slug} className="group">
-                <div className="relative aspect-[16/10] bg-[#F1ECE4] mb-6 overflow-hidden rounded-[1px]">
+                <div className="relative w-full h-[280px] sm:h-[340px] bg-[#F1ECE4] mb-6 overflow-hidden rounded-[1px]">
                   <Image
                     src={essay.coverImage}
                     alt={essay.title}
