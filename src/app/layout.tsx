@@ -18,11 +18,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Nous — Inquiries into Systems, Consciousness, and Agency',
   description: 'An independent journal of ideas, philosophy, and complexity. Edited by Ahmad Farooq.',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.png',
-  },
 }
 
 export default function RootLayout({
