@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Newsreader, Inter } from 'next/font/google'
+import { PHProvider } from '@/components/PostHogProvider'
 import './globals.css'
 
 const newsreader = Newsreader({
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${newsreader.variable} ${inter.variable}`}>
       <body className="min-h-screen antialiased flex flex-col justify-between selection:bg-[#3B1B28] selection:text-[#F9F6F2]">
-        {children}
+        <PHProvider>
+          {children}
+        </PHProvider>
       </body>
     </html>
   )

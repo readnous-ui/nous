@@ -15,7 +15,7 @@ export default function Home() {
       
       <main className="max-w-7xl mx-auto px-6 py-12 sm:py-20 flex-1">
         {/* Flagship Hero Feature */}
-        <section className="mb-24">
+        <section className="mb-24 pb-20 border-b border-[#D8D1C7]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left: Hero Typography */}
             <div className="lg:col-span-5 space-y-6 order-2 lg:order-1">
@@ -41,7 +41,7 @@ export default function Home() {
                 {featured.excerpt}
               </p>
 
-              <div className="pt-4 flex items-center justify-between border-t border-[rgba(23,24,26,0.08)]">
+              <div className="pt-4 flex items-center justify-between border-t border-[#D8D1C7]">
                 <div className="flex items-center space-x-3 text-xs uppercase tracking-[0.12em] text-[#6E686B]">
                   <span className="text-[#3B1B28] font-semibold">{featured.readTime}</span>
                   <span>•</span>
@@ -51,9 +51,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Explicit Height Constrained Container */}
+            {/* Right: Framed Hero Image */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <Link href={`/essay/${featured.slug}`} className="group block overflow-hidden rounded-[1px] relative w-full h-[380px] sm:h-[480px] bg-[#F1ECE4]">
+              <Link href={`/essay/${featured.slug}`} className="group block overflow-hidden rounded-[1px] relative w-full h-[380px] sm:h-[480px] bg-[#F1ECE4] border border-[#D8D1C7]">
                 <Image
                   src={featured.coverImage}
                   alt={featured.title}
@@ -70,11 +70,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Clean Editorial Divider */}
-        <div className="border-t border-[rgba(23,24,26,0.08)] mb-20"></div>
-
-        {/* The 6 Pillars Philosophy Section */}
-        <section className="mb-24 max-w-4xl mx-auto text-center">
+        {/* The 6 Pillars Scope Section */}
+        <section className="mb-24 pb-20 border-b border-[#D8D1C7] max-w-4xl mx-auto text-center">
           <span className="text-[11px] uppercase tracking-[0.2em] text-[#3B1B28] font-semibold block mb-4">
             Curriculum & Scope
           </span>
@@ -87,9 +84,9 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Upcoming Issues Grid */}
+        {/* Volume I Archive Registry */}
         <section className="mb-24">
-          <div className="flex items-center justify-between pb-6 border-b border-[rgba(23,24,26,0.08)] mb-12">
+          <div className="flex items-center justify-between pb-6 border-b border-[#D8D1C7] mb-12">
             <span className="text-xs uppercase tracking-[0.16em] text-[#17181A] font-semibold">
               Volume I Index
             </span>
@@ -100,8 +97,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {upcoming.map((essay) => (
-              <div key={essay.slug} className="group">
-                <div className="relative w-full h-[280px] sm:h-[340px] bg-[#F1ECE4] mb-6 overflow-hidden rounded-[1px]">
+              <div key={essay.slug} className="group border-b border-[#D8D1C7] pb-8 md:border-b-0 md:pb-0">
+                <div className="relative w-full h-[280px] sm:h-[340px] bg-[#F1ECE4] mb-6 overflow-hidden rounded-[1px] border border-[#D8D1C7]">
                   <Image
                     src={essay.coverImage}
                     alt={essay.title}
@@ -128,7 +125,7 @@ export default function Home() {
 
       <AudienceCapture />
 
-      <footer className="border-t border-[rgba(23,24,26,0.08)] py-16 bg-[#F9F6F2] text-xs tracking-[0.12em] text-[#6E686B]">
+      <footer className="border-t border-[#D8D1C7] py-16 bg-[#F9F6F2] text-xs tracking-[0.12em] text-[#6E686B]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center space-x-4">
             <span className="font-serif lowercase text-3xl text-[#3B1B28]">nous</span>
@@ -136,7 +133,6 @@ export default function Home() {
           </div>
           <div className="flex items-center space-x-6">
             <Link href="/about" className="hover:text-[#17181A]">About</Link>
-            <Link href="/studio" className="hover:text-[#17181A]">Studio</Link>
             <a href="#dispatch" className="hover:text-[#17181A]">The Dispatch</a>
           </div>
           <span>© 2026 SOVEREIGN DOMAIN</span>

@@ -10,8 +10,8 @@
   --color-plum-deep: #2A131C;
   --color-plum-soft: #5C2B3E;
   --color-accent-ash: #7D6B73;
-  --color-border: rgba(23, 24, 26, 0.08);
-  --color-border-subtle: rgba(23, 24, 26, 0.04);
+  --color-border: #D8D1C7;
+  --color-border-subtle: #E5DFD5;
 
   --font-serif: var(--font-serif), 'Newsreader', 'Times New Roman', Georgia, serif;
   --font-sans: var(--font-sans), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -37,6 +37,11 @@ h1, h2, h3, h4, .font-serif {
 ::selection {
   background: #3B1B28;
   color: #F9F6F2;
+}
+
+/* Crisp, tactile editorial dividing rules */
+.editorial-rule {
+  border-color: #D8D1C7;
 }
 
 /* Hide scrollbars for clean category rails */
