@@ -16,10 +16,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'nous — Inquiries into Systems, Consciousness, and Agency',
-  description: 'An independent salon of philosophy, science, and the architecture of thought. Edited by Ahmad Farooq.',
+  title: 'Nous — Inquiries into Systems, Consciousness, and Agency',
+  description: 'An independent journal of ideas, philosophy, and complexity. Edited by Ahmad Farooq.',
   icons: {
-    icon: '/nous-masthead.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
   },
 }
 
@@ -30,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${newsreader.variable} ${inter.variable}`}>
-      <body className="min-h-screen antialiased flex flex-col justify-between selection:bg-[#1E3A4C] selection:text-[#F8F5EE]">
+      <body className="min-h-screen antialiased flex flex-col justify-between selection:bg-[#3B1B28] selection:text-[#F9F6F2]">
         {children}
       </body>
     </html>
