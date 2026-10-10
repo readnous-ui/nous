@@ -43,7 +43,7 @@ export function AudienceCapture() {
           Read with deliberation.
         </h2>
         <p className="font-serif text-xl text-[#6E686B] mb-10 leading-relaxed italic max-w-lg mx-auto">
-          Every Sunday, one rigorous inquiry into natural philosophy, computation, and human agency. No algorithmic noise. Delivered direct.
+          Every Sunday, one rigorous inquiry into natural philosophy, computation, and human agency. Paced, contemplative, and delivered direct.
         </p>
 
         {status === 'success' ? (

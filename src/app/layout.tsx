@@ -17,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Nous — Inquiries into Systems, Consciousness, and Agency',
+  title: 'Nous: Inquiries into Systems, Consciousness, and Agency',
   description: 'An independent journal of ideas, philosophy, and complexity. Edited by Ahmad Farooq.',
 }
 
